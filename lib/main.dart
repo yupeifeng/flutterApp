@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:dio/dio.dart';
 
 void main() => runApp(new MyApp());
 
@@ -76,7 +77,10 @@ class RandomWordsState extends State<RandomWords> {
         alreadySaved ? Icons.favorite : Icons.favorite_border,
         color: alreadySaved ? Colors.red : null,
       ),
-      onTap: () {
+      onTap: () async {
+        Dio dio = new Dio();
+        Response response = await dio.get("https://www.google.com/");
+        print(response.data);
         setState(() {
           if (alreadySaved) {
             _saved.remove(pair);
