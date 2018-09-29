@@ -79,7 +79,7 @@ class RandomWordsState extends State<RandomWords> {
       ),
       onTap: () async {
         Dio dio = new Dio();
-        Response response = await dio.get("https://www.google.com/");
+        Response response = await dio.get("https://www.baidu.com/");
         print(response.data);
         setState(() {
           if (alreadySaved) {
